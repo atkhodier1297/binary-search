@@ -17,11 +17,22 @@ function binarySearch(arr, target){
     let rightIndex = arr.length - 1
 
     while(leftIndex <= rightIndex) {
-        let middleIndex = Math.floor(leftIndex + rightIndex) / 2
+        let middleIndex = Math.floor((leftIndex + rightIndex) / 2)
         if(target === arr[middleIndex]){
             return middleIndex
         }
+        if(target < arr[middleIndex]){
+            rightIndex = middleIndex -1
+        } else {
+            leftIndex = middleIndex + 1
+        }
     }
+    return -1
 }
 
 console.log(binarySearch([-5,0,5,15,20], 15))
+console.log(binarySearch([6,12,18,24,32], 12))
+console.log(binarySearch([10,20,30,40,50], 30))
+
+// BigO === O(logn)
+// While there is only 1 loop...a while loop each iteration cuts it in half.
