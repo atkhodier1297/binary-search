@@ -15,6 +15,13 @@ If target is > middle binary search right half of the array.
 function binarySearch(arr, target){
     let leftIndex = 0
     let rightIndex = arr.length - 1
+
+    while(leftIndex <= rightIndex) {
+        let middleIndex = Math.floor(leftIndex + rightIndex) / 2
+        if(target === arr[middleIndex]){
+            return middleIndex
+        }
+    }
 }
 
 console.log(binarySearch([-5,0,5,15,20], 15))
